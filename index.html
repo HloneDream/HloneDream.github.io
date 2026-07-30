@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HloneDream 的个人博客</title>
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- ===== Navigation ===== -->
+    <nav>
+        <div class="nav-inner">
+            <a class="nav-brand" onclick="navigateTo('home')">
+                <i class="fa-solid fa-cube"></i> HloneDream
+            </a>
+            <div class="nav-links">
+                <button class="nav-link active" data-page="home" onclick="navigateTo('home')">
+                    <i class="fa-solid fa-house"></i> 首页
+                </button>
+                <button class="nav-link" data-page="about" onclick="navigateTo('about')">
+                    <i class="fa-solid fa-user"></i> 关于
+                </button>
+                <button class="theme-toggle" id="themeToggle" title="切换主题">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== Reading Progress ===== -->
+    <div class="reading-progress" id="readingProgress">
+        <div class="reading-progress-bar" id="readingProgressBar"></div>
+    </div>
+
+    <!-- ===== HOME VIEW ===== -->
+    <div id="homeView">
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-avatar">
+                    <i class="fa-solid fa-cube"></i>
+                </div>
+                <h1>HloneDream 的博客</h1>
+                <p>分享技术、创意与生活。探索代码世界中的无限可能。</p>
+            </div>
+        </section>
+
+        <section class="posts-section">
+            <div class="container">
+                <h2 class="section-title">
+                    <i class="fa-solid fa-pen-fancy"></i> 最新文章
+                </h2>
+
+                <!-- Search Bar -->
+                <div class="search-bar">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="搜索文章..." autocomplete="off">
+                </div>
+
+                <div class="posts-grid" id="postsGrid">
+                    <!-- Posts rendered by JS -->
+                </div>
+
+                <!-- No Results -->
+                <div class="search-no-results" id="searchNoResults" style="display:none;">
+                    <i class="fa-solid fa-inbox"></i>
+                    没有找到匹配的文章
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ===== ARTICLE VIEW ===== -->
+    <div class="article-view" id="articleView">
+        <div class="container">
+            <button class="article-back" onclick="navigateTo('home')">
+                <i class="fa-solid fa-arrow-left"></i> 返回首页
+            </button>
+            <div id="articleContent"></div>
+        </div>
+    </div>
+
+    <!-- ===== ABOUT VIEW ===== -->
+    <div class="about-view" id="aboutView">
+        <div class="container">
+            <div class="about-card">
+                <h2><i class="fa-solid fa-user-astronaut"></i> 关于我</h2>
+                <p>
+                    你好！我是 <strong>HloneDream</strong>，一名热爱技术与创意的开发者。
+                </p>
+                <p>
+                    这个博客记录了我学习和探索编程世界的过程。我喜欢前端开发、游戏设计，以及一切有趣的技术挑战。
+                </p>
+                <p>
+                    我相信好的代码就像艺术品——简洁、优雅、富有表现力。希望通过这个博客，能与更多志同道合的朋友交流分享。
+                </p>
+                <h3 style="font-size:1rem;color:var(--text);margin:24px 0 12px;font-weight:600;">我的技能</h3>
+                <div class="about-skills">
+                    <span class="about-skill">HTML/CSS</span>
+                    <span class="about-skill">JavaScript</span>
+                    <span class="about-skill">Vue.js</span>
+                    <span class="about-skill">React</span>
+                    <span class="about-skill">Node.js</span>
+                    <span class="about-skill">Python</span>
+                    <span class="about-skill">UI Design</span>
+                    <span class="about-skill">Git</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-social">
+                <a href="https://github.com/HloneDream" target="_blank" rel="noopener" title="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="mailto:2645710503@qq.com" title="Email">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+            <p class="footer-text">
+                &copy; 2026 HloneDream. Made with <i class="fa-solid fa-heart" style="color:#ffb6c1;"></i>
+            </p>
+        </div>
+    </footer>
+
+    <!-- ===== Back to Top ===== -->
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- ===== Game Win Overlay ===== -->
+    <div class="game-win-message" id="gameWinMessage">
+        <div class="game-win-content">
+            <h2>🎉 恭喜通关!</h2>
+            <p>你成功将九宫格变成了目标图案!</p>
+            <div class="game-win-stats">
+                <div>
+                    <div class="game-win-stat-value" id="gameFinalMoves">0</div>
+                    <div class="game-win-stat-label">点击次数</div>
+                </div>
+                <div>
+                    <div class="game-win-stat-value" id="gameFinalTime">0</div>
+                    <div class="game-win-stat-label">用时(秒)</div>
+                </div>
+            </div>
+            <button class="game-btn-play-again" onclick="initGame()">
+                <i class="fa-solid fa-play-circle"></i> 再玩一次
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== Scripts ===== -->
+    <script src="js/data.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+</html>
