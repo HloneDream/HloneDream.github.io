@@ -1,0 +1,20 @@
+[
+    {
+        "id": "winter-sleep-awakening",
+        "title": "冬眠苏醒第8天：传送之门",
+        "date": "2222-05-29",
+        "tags": ["科幻", "日记", "冬眠"],
+        "icon": "fa-person-walking-arrow-right",
+        "excerpt": "今天是我从冬眠苏醒后的第8天，我终于能离开冬眠基地了。然而在传送门前，我却犹豫了——分子级分解与重建，在我那个时代看来，这岂不是意味着……死亡？",
+        "file": "winter-sleep-awakening.md"
+    },
+    {
+        "id": "macaron-game",
+        "title": "九宫格变色游戏",
+        "date": "2026-07-30",
+        "tags": ["游戏", "JavaScript", "交互"],
+        "icon": "fa-palette",
+        "excerpt": "一款可爱又烧脑的九宫格变色小游戏。点击格子，让自身及周围格子变色，目标是拼出指定的图案！",
+        "file": "macaron-game.md"
+    }
+]

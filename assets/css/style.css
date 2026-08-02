@@ -142,6 +142,12 @@ nav {
     border-radius: 8px;
     transition: all 0.2s;
     font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .nav-link:hover {
@@ -487,12 +493,8 @@ nav {
    Article Detail View
    ============================================================ */
 .article-view {
-    display: none;
-    padding: 100px 0 60px;
-}
-
-.article-view.active {
     display: block;
+    padding: 100px 0 60px;
     animation: fadeIn 0.4s ease;
 }
 
@@ -626,6 +628,131 @@ nav {
     border: 1px solid var(--border);
     background: var(--bg-card);
     transition: background 0.3s;
+}
+
+/* ============================================================
+   Game Mode Select
+   ============================================================ */
+.game-mode-select {
+    padding: 40px 24px;
+    text-align: center;
+}
+
+.game-mode-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 8px;
+}
+
+.game-mode-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+}
+
+.game-mode-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.game-mode-btn {
+    background: var(--tag-bg);
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    padding: 20px 24px;
+    min-width: 160px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    font-family: inherit;
+}
+
+.game-mode-btn i {
+    font-size: 2rem;
+    color: var(--pink);
+    margin-bottom: 4px;
+}
+
+.game-mode-btn span {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.game-mode-btn small {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.game-mode-btn:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    background: var(--bg-glass);
+    box-shadow: var(--shadow-hover);
+}
+
+/* ============================================================
+   Custom Pattern Editor
+   ============================================================ */
+.game-custom-editor {
+    padding: 32px 24px;
+    text-align: center;
+}
+
+.game-editor-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    aspect-ratio: 1/1;
+    background: var(--code-bg);
+    padding: 12px;
+    border-radius: 16px;
+    max-width: 320px;
+    margin: 0 auto 20px;
+}
+
+.game-editor-cell {
+    cursor: pointer;
+}
+
+.game-editor-cell:hover::after {
+    opacity: 1;
+}
+
+/* ============================================================
+   Mode Badge
+   ============================================================ */
+.game-mode-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--tag-bg);
+    color: var(--tag-color);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 0 auto 16px;
+}
+
+.game-mode-badge i {
+    color: var(--pink);
+}
+
+/* ============================================================
+   Win Message Buttons
+   ============================================================ */
+.game-win-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .game-placeholder {
@@ -929,16 +1056,25 @@ nav {
 }
 
 /* ============================================================
-   About Page
+   About View
    ============================================================ */
 .about-view {
     display: none;
     padding: 100px 0 60px;
+    animation: fadeIn 0.4s ease;
 }
 
 .about-view.active {
     display: block;
+}
+
+#homeView {
+    display: block;
     animation: fadeIn 0.4s ease;
+}
+
+#homeView.hidden {
+    display: none;
 }
 
 .about-card {
@@ -1066,6 +1202,89 @@ footer {
 }
 
 /* ============================================================
+   Article Loading
+   ============================================================ */
+.article-loading {
+    text-align: center;
+    padding: 80px 0;
+    color: var(--text-muted);
+}
+
+.article-loading i {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.article-loading p {
+    font-size: 0.95rem;
+}
+
+/* ============================================================
+   404 Page
+   ============================================================ */
+.error-container {
+    min-height: calc(100vh - 64px - 120px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 24px 60px;
+}
+
+.error-code {
+    font-size: 6rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), var(--pink));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.error-icon {
+    font-size: 3rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.error-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 12px;
+}
+
+.error-desc {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 420px;
+    margin-bottom: 28px;
+}
+
+.error-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    border-radius: 12px;
+    background: var(--gradient-1);
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 6px 20px rgba(168,216,234,0.3);
+}
+
+.error-back:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(168,216,234,0.4);
+}
+
+/* ============================================================
    Responsive
    ============================================================ */
 @media (max-width: 768px) {
@@ -1077,6 +1296,8 @@ footer {
     .about-card { padding: 24px; }
     .game-goal-pattern { width: 100px; height: 100px; }
     .nav-inner { padding: 0 16px; }
+    .nav-links { gap: 6px; }
+    .nav-link { padding: 6px 10px; }
     .back-to-top { bottom: 20px; right: 20px; width: 40px; height: 40px; }
 }
 

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章 - HloneDream 的个人博客</title>
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Markdown Parser -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="page-post">
+
+    <!-- ===== Navigation ===== -->
+    <nav>
+        <div class="nav-inner">
+            <a class="nav-brand" href="index.html">
+                <i class="fa-solid fa-cube"></i> HloneDream
+            </a>
+            <div class="nav-links">
+                <a class="nav-link" data-page="home" href="index.html">
+                    <i class="fa-solid fa-house"></i> 首页
+                </a>
+                <a class="nav-link" data-page="about" href="index.html?page=about">
+                    <i class="fa-solid fa-user"></i> 关于
+                </a>
+                <button class="theme-toggle" id="themeToggle" title="切换主题">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== Reading Progress ===== -->
+    <div class="reading-progress" id="readingProgress">
+        <div class="reading-progress-bar" id="readingProgressBar"></div>
+    </div>
+
+    <!-- ===== ARTICLE VIEW ===== -->
+    <div class="article-view">
+        <div class="container">
+            <a class="article-back" href="index.html">
+                <i class="fa-solid fa-arrow-left"></i> 返回首页
+            </a>
+            <div id="articleContent">
+                <div class="article-loading">
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+                    <p>正在加载文章...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-social">
+                <a href="https://github.com/HloneDream" target="_blank" rel="noopener" title="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="mailto:2645710503@qq.com" title="Email">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+            <p class="footer-text">
+                &copy; 2026 HloneDream. Made with <i class="fa-solid fa-heart" style="color:#ffb6c1;"></i>
+            </p>
+        </div>
+    </footer>
+
+    <!-- ===== Back to Top ===== -->
+    <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- ===== Scripts ===== -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/router.js"></script>
+
+</body>
+</html>
